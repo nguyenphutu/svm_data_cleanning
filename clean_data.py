@@ -278,4 +278,4 @@ for k, v in habitat.items():
 data_frame['habitat'] = list_habitat
 print(data_frame)
 
-data_frame.to_csv('data_number.csv')
+data_frame.to_csv('data_number.csv', mode='wb')
