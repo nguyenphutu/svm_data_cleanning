@@ -24,9 +24,10 @@ def lr_algorithms(file_data_name):
 
     cm_lr = confusion_matrix(Y_test, y_pred_lr)
     print('Confusion matrix SVM:\n', cm_lr)
-    print('Accuracy of SVM classifier on test set: ', clf_lr.score(X_test, Y_test))
+    precision = clf_lr.score(X_test, Y_test)
+    print('Accuracy of SVM classifier on test set: ', precision)
 
     end = time.time()
     performing_time = end - start
 
-    return performing_time
+    return performing_time, precision

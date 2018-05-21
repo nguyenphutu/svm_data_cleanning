@@ -23,9 +23,11 @@ def svm_algorithm(file_data_name):
 
     cm_svm = confusion_matrix(Y_test, y_pre_test)
     print('Confusion matrix SVM:\n', cm_svm)
-    print('Accuracy of SVM classifier on test set: ', clf.score(X_test, Y_test))
+
+    precision = clf.score(X_test, Y_test)
+    print('Accuracy of SVM classifier on test set: ', precision)
 
     end = time.time()
     performing_time = end - start
 
-    return performing_time
+    return performing_time, precision
