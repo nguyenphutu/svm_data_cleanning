@@ -27,7 +27,7 @@ def nn_algorithms(file_data_name):
     cm_ann = confusion_matrix(Y_test, y_pred_ann)
     print('Confusion matrix SVM:\n', cm_ann)
     precision = clf_ann.score(X_test, Y_test)
-    print('Accuracy of SVM classifier on test set: ', precision)
+    print('Accuracy of Neural Network on test set: ', precision)
 
     end = time.time()
     performing_time = end - start
