@@ -1,11 +1,10 @@
 from clean_data import *
-from sklearn import svm
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
 import time
 
 
-def svm_algorithm(file_data_name):
-
+def lr_algorithms(file_data_name):
     # calculate performing time
     start = time.time()
     data_frame = clean_data(file_data_name)
@@ -17,13 +16,15 @@ def svm_algorithm(file_data_name):
     print('X test: ', X_test.shape)
     print('y test: ', Y_test.shape)
 
-    clf = svm.SVC()
-    clf.fit(X_train, Y_train)
-    y_pre_test = clf.predict(X_test)
+    # call model and fit model and training data
+    clf_lr = LogisticRegression().fit(X_train, Y_train)
 
-    cm_svm = confusion_matrix(Y_test, y_pre_test)
-    print('Confusion matrix SVM:\n', cm_svm)
-    print('Accuracy of SVM classifier on test set: ', clf.score(X_test, Y_test))
+    # predict test data
+    y_pred_lr = clf_lr.predict(X_test)
+
+    cm_lr = confusion_matrix(Y_test, y_pred_lr)
+    print('Confusion matrix SVM:\n', cm_lr)
+    print('Accuracy of SVM classifier on test set: ', clf_lr.score(X_test, Y_test))
 
     end = time.time()
     performing_time = end - start
